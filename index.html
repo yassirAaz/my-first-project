@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Website</title>
+    <style>
+/* Styles for header and navigation */
+*{
+ 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+
+}
+body{
+    background: linear-gradient(135deg, #4833d0,#4c00af);
+    height: 100vh;
+}
+header {
+    background-color: rgba(0, 255, 255, 0.3);
+    color: #fff;
+    padding: 20px;
+    
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+   
+}
+h1 span{
+    color: aqua;
+    
+}
+       .gallery{
+        width: 900px;
+        display: flex;
+        overflow-x: scroll;
+
+       }
+       .gallery div{
+        width: 100%;
+        display: grid;
+        grid-template-columns:auto auto auto ;
+        grid-gap:20px;
+        padding: 10px;
+        flex: none;
+
+
+
+       }
+       .gallery div img{
+        width: 100%;
+        filter: grayscale(100%);
+        transition: transform 0.5s;
+       }
+       .gallery::-webkit-scrollbar{
+        display: none;
+       }
+       .gallery-wrap{ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2% auto; 
+
+
+    }
+    #backBtn,#nextBtn{
+        width: 50px;
+        cursor: pointer;
+        margin: 40px;
+    }
+    .gallery div img:hover{
+        filter: grayscale(0);
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+
+
+
+
+footer {
+    background-color: rgba(0, 255, 255, 0.3);
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+        <h1>Dynamic HTML/CSS/JS Site  <br> <span>With Multimedia</span></h1>
+    <div class="gallery-wrap">
+            <img src="images/back.png" id="backBtn">
+
+        <div class="gallery">
+            <div>
+               <span><img src="images/image-1.png" alt=""></span>
+               <span><img src="images/image-2.png" alt=""></span>
+               <span><img src="images/image-3.png" alt=""></span>
+            </div>
+            <div>
+                <span><img src="images/image-4.png" alt=""></span>
+                <span><img src="images/image-5.png" alt=""></span>
+                <span><img src="images/image-6.png" alt=""></span>
+            </div>
+        </div>
+
+        <img src="images/next.png" id="nextBtn">
+    </div>
+       
+</main>
+
+    <footer>
+        <p>&copy; 2024 Vibrant Website. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+
+
+
+let scrollC=document.querySelector(".gallery")
+let backBtn=document.getElementById("backBtn")
+let nextBtn=document.getElementById("nextBtn")
+
+
+    scrollC.addEventListener("wheel",(evt) =>{
+        evt.preventDefault();
+        scrollC.scrollTop += evt.deltaY;
+    scrollC.style.scrollBehavior = "auto"
+
+    }
+);
+
+nextBtn.addEventListener("click",()=>{
+    scrollC.style.scrollBehavior = "smooth"
+    scrollC.scrollLeft += 900;
+})
+backBtn.addEventListener("click",()=>{
+    scrollC.style.scrollBehavior = "smooth"
+    scrollC.scrollLeft -= 900;
+})
+
+    </script>
+</body>
+</html>
